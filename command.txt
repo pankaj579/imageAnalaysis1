@@ -356,3 +356,67 @@ ces sector\nand other tragedies\n23 Playgrounds\nfor members of diverse and\nThr
 d 20 creative play spaces in 43 cities\nacross the country serving over 10,000 children.\n211 Million Meals\nOur 10-year commitment to Feeding America has helped\nlocal food banks in every state and city where we have\na presenc
 e deliver nearly 271 million meals to children\nand their families in need, including over 4,600 Wealth\nManagement employees who volunteered at 93 food banks\nacross the country in 2019.\n8,000+ Babies\nWe have nursed over 8,00
 0 babies back to good health\nthrough our Grow Clinic partners in Boston, Chicago,\nHouston and Los Angeles.
+
+
+ ********************** 
+   Parsed result = a brochure of a group of children holding a jar, with more content: The Morgan Stanley Foundation
+Our work has been guided by the passions, talents
+and hard work of our employees and we strive to
+For more than 50 years, the Morgan Stanley Foundation
+create transformative change in our communities
+has supported healthy starts and solid educations for the
+and to inspire our employees toward a lifetime of
+children in our communities.
+committed engagement.
+Building on this commitment, this year the Foundation has extended its focus
+to take on the growing challenges around children's mental health. We believe
+509,000 Volunteer Hours
+that as a global company, we have a unique opportunity to drive tangible
+Over 509,000 volunteer hours to philanthropic causes
+change and are excited to launch the Morgan Stanley Alliance for Children's
+around the world in 2019, including 272,000 hours during
+Mental Health to do our part to set children in our communities up for success.
+Global Volunteer Month in June.
+The Alliance will build and scale proven efforts, fund innovative ideas and
+strategically address the far-reaching negative impacts of stress, anxiety and
+$106 Million
+depression in the first decades of life.
+Employees, together with the Company, the Morgan Stanley
+Foundation and the Morgan Stanley International
+Morgan Stanley Foundation's efforts are fourfold:
+Foundation, donated nearly $106 million to charities for
+PROVIDE
+INVEST
+ENCOURAGE
+SUPPORT
+greater impact in our communities in 2019.
+children with
+employee
+the firm's response
+a healthy
+instudents to create access
+and opportunity in the
+volunteer efforts
+to natural disasters
+start to life
+financial services sector
+and other tragedies
+23 Playgrounds
+for members of diverse and
+Through our partnership with KaBOOMI, and with the
+underserved communities
+Incredible reach of our local branches, we have created
+23 playgrounds and 20 creative play spaces in 43 cities
+across the country serving over 10,000 children.
+211 Million Meals
+Our 10-year commitment to Feeding America has helped
+local food banks in every state and city where we have
+a presence deliver nearly 271 million meals to children
+and their families in need, including over 4,600 Wealth
+Management employees who volunteered at 93 food banks
+across the country in 2019.
+8,000+ Babies
+We have nursed over 8,000 babies back to good health
+through our Grow Clinic partners in Boston, Chicago,
+Houston and Los Angeles.
+   ********************** 
