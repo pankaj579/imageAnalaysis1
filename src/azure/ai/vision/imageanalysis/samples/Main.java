@@ -26,13 +26,15 @@ public class Main {
             boolean continueRunning = true;
             do {
                 System.out.println("\nPlease choose one of the following samples:");
-                System.out.println(" 1. Analyze image from file, all features, synchronous (blocking)");
-                System.out.println(" 2. Analyze image from URL, asynchronous (non-blocking)");
-                System.out.println(" 3. Analyze image from memory buffer, synchronous (blocking)");
-                System.out.println(" 4. Analyze image using a custom-trained model");
-                System.out.println(" 5. Background removal");
-                System.out.println(" 6. Extract from PDF");
-                System.out.print("\nYour choice 1-4 (or 0 to exit): ");
+                System.out.println(" 1. Analyze image from PDF, all features, synchronous (blocking)");
+                System.out.println(" 2. Analyze an image, all features, synchronous (blocking)");
+//                System.out.println(" 1. Analyze image from file, all features, synchronous (blocking)");
+//                System.out.println(" 2. Analyze image from URL, asynchronous (non-blocking)");
+//                System.out.println(" 3. Analyze image from memory buffer, synchronous (blocking)");
+//                System.out.println(" 4. Analyze image using a custom-trained model");
+//                System.out.println(" 5. Background removal");
+//                System.out.println(" 6. Extract from PDF");
+                System.out.print("\nYour choice 1,2 OR 0 to exit): ");
     
                 String input = getInputArgument(args);
                 if (input == null || input.isEmpty()) {
@@ -43,14 +45,34 @@ public class Main {
 
                 int choice = Integer.parseInt(input);
 
+
                 switch (choice)
                 {
                 case 1:
-                    Samples.analyzeImageFromFile(Secrets.getEndpoint(), Secrets.getKey());
+                {
+                    //Samples.analyzeImageFromFile(Secrets.getEndpoint(), Secrets.getKey());
+                    System.out.print("\n Please enter the PDF file name. ");
+                    String fileName = getInputArgument(args);
+                    if (fileName == null || fileName.isEmpty()) {
+                        fileName = new Scanner(System.in).nextLine();
+                    } else {
+                        continueRunning = false; // Input argument provided, exit after running once
+                    }
+                    ContentParser.extractPDF(Secrets.getEndpoint(), Secrets.getKey(), fileName);
                     break;
-                case 2:
-                    Samples.analyzeImageFromUrlAsync(Secrets.getEndpoint(), Secrets.getKey());
+                }
+                case 2: {
+                    //Samples.analyzeImageFromUrlAsync(Secrets.getEndpoint(), Secrets.getKey());
+                    System.out.print("\n Please enter the image file name. ");
+                    String fileName = getInputArgument(args);
+                    if (fileName == null || fileName.isEmpty()) {
+                        fileName = new Scanner(System.in).nextLine();
+                    } else {
+                        continueRunning = false; // Input argument provided, exit after running once
+                    }
+                    ContentParser.extractImage(Secrets.getEndpoint(), Secrets.getKey(), fileName);
                     break;
+                }
                 case 3:
                     Samples.analyzeImageFromBuffer(Secrets.getEndpoint(), Secrets.getKey());
                     break;
@@ -59,9 +81,6 @@ public class Main {
                     break;
                 case 5:
                     Samples.backgroundRemoval(Secrets.getEndpoint(), Secrets.getKey());
-                    break;
-                case 6:
-                    ContentParser.extractImage(Secrets.getEndpoint(), Secrets.getKey());
                     break;
                 case 0:
                     System.exit(0);

@@ -10,9 +10,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class ContentParser {
-    public static void extractImage(String endpoint, String key) throws IOException {
+    public static void extractPDF(String endpoint, String key, String filename) throws IOException {
         File newFile
-                = new File("C:/sample code/azure-ai-vision-sdk-main/azure-ai-vision-sdk-main/samples/java/image-analysis/document1Pager.pdf");
+                = new File("C:/sample code/azure-ai-vision-sdk-main/azure-ai-vision-sdk-main/samples/java/image-analysis/" + filename + ".pdf");
         PDDocument pdfDocument = Loader.loadPDF(newFile);
 
         // PDFRenderer class to be Instantiated
@@ -26,13 +26,20 @@ public class ContentParser {
         BufferedImage img = pdfRenderer.renderImage(0);
         // Writing the extracted
         // image to a new file
+        String imageName = filename + ".png";
         ImageIO.write(
                 img, "JPEG",
-                new File("C:/sample code/azure-ai-vision-sdk-main/azure-ai-vision-sdk-main/samples/java/image-analysis/document1Pager.png"));
+                new File("C:/sample code/azure-ai-vision-sdk-main/azure-ai-vision-sdk-main/samples/java/image-analysis/" + imageName));
         System.out.println(
                 "Image has been extracted successfully");
 
         // Closing the PDF document
         pdfDocument.close();
+
+        Samples.analyzeImageFromFileNew(Secrets.getEndpoint(), Secrets.getKey(), imageName);
+    }
+
+    public static void extractImage(String endpoint, String key, String filename) throws IOException {
+        Samples.analyzeImageFromFileNew(Secrets.getEndpoint(), Secrets.getKey(), filename);
     }
 }

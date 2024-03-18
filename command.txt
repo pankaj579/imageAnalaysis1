@@ -358,7 +358,8 @@ e deliver nearly 271 million meals to children\nand their families in need, incl
 0 babies back to good health\nthrough our Grow Clinic partners in Boston, Chicago,\nHouston and Los Angeles.
 
 
- ********************** 
+
+ **********************
    Parsed result = a brochure of a group of children holding a jar, with more content: The Morgan Stanley Foundation
 Our work has been guided by the passions, talents
 and hard work of our employees and we strive to
@@ -419,4 +420,4 @@ across the country in 2019.
 We have nursed over 8,000 babies back to good health
 through our Grow Clinic partners in Boston, Chicago,
 Houston and Los Angeles.
-   ********************** 
+   **********************

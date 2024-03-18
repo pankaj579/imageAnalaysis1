@@ -183,6 +183,85 @@ public class Samples {
         }
     }
 
+
+    public static void analyzeImageFromFileNew(String endpoint, String key, String imageFileName) {
+        try (
+                VisionServiceOptions serviceOptions = new VisionServiceOptions(new URL(endpoint), key);
+
+                // Specify the image file on disk to analyze. sample.jpg is a good example to show most features.
+                // Alternatively, specify an image URL (e.g. https://aka.ms/azai/vision/image-analysis-sample.jpg)
+                // or a memory buffer containing the image. see:
+                // https://learn.microsoft.com/azure/ai-services/computer-vision/how-to/call-analyze-image-40?pivots=programming-language-java#select-the-image-to-analyze
+                VisionSource imageSource = VisionSource.fromFile(imageFileName);
+
+                ImageAnalysisOptions analysisOptions = new ImageAnalysisOptions()) {
+
+            // Mandatory. You must set one or more features to analyze. Here we use the full set of features.
+            // Note that 'Caption' and 'DenseCaptions' are only supported in Azure GPU regions (East US, France Central, Korea Central,
+            // North Europe, Southeast Asia, West Europe, West US). Remove 'Caption' and 'DenseCaptions' from the list below if your
+            // Computer Vision key is not from one of those regions.
+            analysisOptions.setFeatures(EnumSet.of(
+                    ImageAnalysisFeature.CROP_SUGGESTIONS,
+                    ImageAnalysisFeature.CAPTION,
+                    ImageAnalysisFeature.DENSE_CAPTIONS,
+                    ImageAnalysisFeature.OBJECTS,
+                    ImageAnalysisFeature.PEOPLE,
+                    ImageAnalysisFeature.TEXT,
+                    ImageAnalysisFeature.TAGS));
+
+            // Optional, and only relevant when you select ImageAnalysisFeature.CropSuggestions.
+            // Define one or more aspect ratios for the desired cropping. Each aspect ratio needs to be in the range [0.75, 1.8].
+            // If you do not set this, the service will return one crop suggestion with the aspect ratio it sees fit.
+            analysisOptions.setCroppingAspectRatios(Arrays.asList(0.9, 1.33));
+
+            // Optional. Default is "en" for English. See https://aka.ms/cv-languages for a list of supported
+            // language codes and which visual features are supported for each language.
+            analysisOptions.setLanguage("en");
+
+            // Optional. Default is "latest".
+            analysisOptions.setModelVersion("latest");
+
+            // Optional, and only relevant when you select ImageAnalysisFeature.Caption.
+            // Set this to "true" to get a gender neutral caption (the default is "false").
+            analysisOptions.setGenderNeutralCaption(true);
+
+            try (
+                    ImageAnalyzer analyzer = new ImageAnalyzer(serviceOptions, imageSource, analysisOptions)) {
+                System.out.println(" Please wait for image analysis results...\n");
+
+                // This call creates the network connection and blocks until Image Analysis results
+                // return (or an error occurred). Note that there is also an asynchronous (non-blocking)
+                // version of this method: analyzer.analyzeAsync().
+                try(
+                        ImageAnalysisResult result = analyzer.analyze()) {
+
+                    if (result.getReason() == ImageAnalysisResultReason.ANALYZED) {
+
+                        ImageAnalysisResultDetails resultDetails = ImageAnalysisResultDetails.fromResult(result);
+                        System.out.println(" Result details:");
+                        System.out.println("   JSON result = " + resultDetails.getJsonResult());
+                        System.out.println("   ************************************************ " );
+                        ObjectMapper mapper = new ObjectMapper();
+                        ImageProcessResult imageResult = mapper.readValue(resultDetails.getJsonResult(), ImageProcessResult.class);
+                        System.out.println("   Parsed result = " + imageResult.getcResult().getText() + ", with more content: " + imageResult.getrResult().getContent());
+                        System.out.println("   ************************************************ " );
+                    } else { // result.Reason == ImageAnalysisResultReason.Error
+                        ImageAnalysisErrorDetails errorDetails = ImageAnalysisErrorDetails.fromResult(result);
+                        System.out.println(" Analysis failed.");
+                        System.out.println("   Error reason: " + errorDetails.getReason());
+                        System.out.println("   Error code: " + errorDetails.getErrorCode());
+                        System.out.println("   Error message: " + errorDetails.getMessage());
+                        System.out.println(" Did you set the computer vision endpoint and key?");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
     /**
      * This sample does analysis on an image URL, using an asynchronous
      * (non-blocking) call to analyze one visual feature (Tags)
