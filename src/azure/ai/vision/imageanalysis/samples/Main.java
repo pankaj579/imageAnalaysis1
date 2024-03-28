@@ -28,12 +28,8 @@ public class Main {
                 System.out.println("\nPlease choose one of the following samples:");
                 System.out.println(" 1. Analyze image from PDF, all features, synchronous (blocking)");
                 System.out.println(" 2. Analyze an image, all features, synchronous (blocking)");
-//                System.out.println(" 1. Analyze image from file, all features, synchronous (blocking)");
-//                System.out.println(" 2. Analyze image from URL, asynchronous (non-blocking)");
-//                System.out.println(" 3. Analyze image from memory buffer, synchronous (blocking)");
-//                System.out.println(" 4. Analyze image using a custom-trained model");
-//                System.out.println(" 5. Background removal");
-//                System.out.println(" 6. Extract from PDF");
+                System.out.println(" 3. Hear the audio");
+
                 System.out.print("\nYour choice 1,2 OR 0 to exit): ");
     
                 String input = getInputArgument(args);
@@ -74,13 +70,15 @@ public class Main {
                     break;
                 }
                 case 3:
-                    Samples.analyzeImageFromBuffer(Secrets.getEndpoint(), Secrets.getKey());
-                    break;
-                case 4:
-                    Samples.analyzeImageWithCustomModel(Secrets.getEndpoint(), Secrets.getKey());
-                    break;
-                case 5:
-                    Samples.backgroundRemoval(Secrets.getEndpoint(), Secrets.getKey());
+                    //Samples.analyzeImageFromBuffer(Secrets.getEndpoint(), Secrets.getKey());
+                    System.out.print("\n Please enter the PDF file name to convert into audio. ");
+                    String fileName = getInputArgument(args);
+                    if (fileName == null || fileName.isEmpty()) {
+                        fileName = new Scanner(System.in).nextLine();
+                    } else {
+                        continueRunning = false; // Input argument provided, exit after running once
+                    }
+                    TextToSpeech.dospeak(ContentParser.extractPDF(Secrets.getEndpoint(), Secrets.getKey(), fileName));
                     break;
                 case 0:
                     System.exit(0);

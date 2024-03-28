@@ -79,6 +79,12 @@
       <artifactId>pdfbox</artifactId>
       <version>3.0.2</version>
     </dependency>
+    <dependency>
+      <groupId>com.microsoft.cognitiveservices.speech</groupId>
+      <artifactId>client-sdk</artifactId>
+      <version>1.36.0</version>
+    </dependency>
+
   </dependencies>
   <!-- For Microsoft-internal usage, to build t0his sample with a pre-release Vision SDK Maven package. Can be removed when using a published package. -->
   <repositories>

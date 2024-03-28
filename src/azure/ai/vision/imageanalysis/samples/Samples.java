@@ -184,7 +184,8 @@ public class Samples {
     }
 
 
-    public static void analyzeImageFromFileNew(String endpoint, String key, String imageFileName) {
+    public static String analyzeImageFromFileNew(String endpoint, String key, String imageFileName) {
+        String audibleResult = "";
         try (
                 VisionServiceOptions serviceOptions = new VisionServiceOptions(new URL(endpoint), key);
 
@@ -229,9 +230,7 @@ public class Samples {
                     ImageAnalyzer analyzer = new ImageAnalyzer(serviceOptions, imageSource, analysisOptions)) {
                 System.out.println(" Please wait for image analysis results...\n");
 
-                // This call creates the network connection and blocks until Image Analysis results
-                // return (or an error occurred). Note that there is also an asynchronous (non-blocking)
-                // version of this method: analyzer.analyzeAsync().
+
                 try(
                         ImageAnalysisResult result = analyzer.analyze()) {
 
@@ -243,7 +242,8 @@ public class Samples {
                         System.out.println("   ************************************************ " );
                         ObjectMapper mapper = new ObjectMapper();
                         ImageProcessResult imageResult = mapper.readValue(resultDetails.getJsonResult(), ImageProcessResult.class);
-                        System.out.println("   Parsed result = " + imageResult.getcResult().getText() + ", with more content: " + imageResult.getrResult().getContent());
+                        audibleResult = "   Parsed result = " + imageResult.getcResult().getText() + ", with more content: " + imageResult.getrResult().getContent();
+                        System.out.println(audibleResult);
                         System.out.println("   ************************************************ " );
                     } else { // result.Reason == ImageAnalysisResultReason.Error
                         ImageAnalysisErrorDetails errorDetails = ImageAnalysisErrorDetails.fromResult(result);
@@ -258,6 +258,7 @@ public class Samples {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return audibleResult;
     }
 
 

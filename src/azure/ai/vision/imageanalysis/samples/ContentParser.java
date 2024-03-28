@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class ContentParser {
-    public static void extractPDF(String endpoint, String key, String filename) throws IOException {
+    public static String extractPDF(String endpoint, String key, String filename) throws IOException {
         File newFile
                 = new File("C:/sample code/azure-ai-vision-sdk-main/azure-ai-vision-sdk-main/samples/java/image-analysis/" + filename + ".pdf");
         PDDocument pdfDocument = Loader.loadPDF(newFile);
@@ -36,10 +36,10 @@ public class ContentParser {
         // Closing the PDF document
         pdfDocument.close();
 
-        Samples.analyzeImageFromFileNew(Secrets.getEndpoint(), Secrets.getKey(), imageName);
+        return Samples.analyzeImageFromFileNew(Secrets.getEndpoint(), Secrets.getKey(), imageName);
     }
 
-    public static void extractImage(String endpoint, String key, String filename) throws IOException {
-        Samples.analyzeImageFromFileNew(Secrets.getEndpoint(), Secrets.getKey(), filename);
+    public static String extractImage(String endpoint, String key, String filename) throws IOException {
+        return Samples.analyzeImageFromFileNew(Secrets.getEndpoint(), Secrets.getKey(), filename);
     }
 }
