@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="mobicents.external.freetts.mbrola" type="repository">
+    <properties maven-id="org.mobicents.external.freetts:mbrola:1.2.2" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/mbrola-1.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -3,62 +3,6 @@
 
 mvn clean dependency:copy-dependencies
 
- Image height = 432
- Image width = 648
- Model version = 2023-02-01-preview
- Caption:
-   "a person wearing a mask sitting at a table with a laptop", Confidence 0.8568
- Dense Captions:
-   "a person wearing a mask sitting at a table with a laptop", Bounding box BoundingBox{X=0, Y=0, W=648, H=432}, Confidence 0.8571
-   "a person using a laptop", Bounding box BoundingBox{X=220, Y=289, W=144, H=73}, Confidence 0.7827
-   "a person wearing a colorful face mask", Bounding box BoundingBox{X=285, Y=178, W=202, H=249}, Confidence 0.7766
-   "a green chair in a room", Bounding box BoundingBox{X=463, Y=160, W=117, H=184}, Confidence 0.7056
-   "a close-up of a person's hand", Bounding box BoundingBox{X=217, Y=162, W=109, H=180}, Confidence 0.8373
-   "a person sitting in a chair", Bounding box BoundingBox{X=418, Y=320, W=105, H=109}, Confidence 0.8085
-   "a blue and green background", Bounding box BoundingBox{X=456, Y=163, W=60, H=155}, Confidence 0.6396
-   "a close-up of a wooden table", Bounding box BoundingBox{X=59, Y=318, W=55, H=58}, Confidence 0.7360
-   "a person sitting at a table", Bounding box BoundingBox{X=287, Y=315, W=236, H=113}, Confidence 0.7796
-   "a close up of a laptop on a table", Bounding box BoundingBox{X=88, Y=338, W=354, H=88}, Confidence 0.8019
- Objects:
-   "person", Bounding box BoundingBox{X=303, Y=194, W=181, H=223}, Confidence 0.7650
-   "Laptop", Bounding box BoundingBox{X=221, Y=289, W=159, H=80}, Confidence 0.5740
- Tags:
-   "furniture", Confidence 0.9881
-   "clothing", Confidence 0.9805
-   "person", Confidence 0.9484
-   "houseplant", Confidence 0.9421
-   "desk", Confidence 0.9157
-   "indoor", Confidence 0.9050
-   "computer", Confidence 0.8923
-   "laptop", Confidence 0.8696
-   "sitting", Confidence 0.8194
-   "wall", Confidence 0.7606
-   "woman", Confidence 0.7446
-   "table", Confidence 0.6903
-   "plant", Confidence 0.6417
-   "using", Confidence 0.5301
- People:
-   Bounding box BoundingBox{X=296, Y=181, W=196, H=250}, Confidence 0.9579
-   Bounding box BoundingBox{X=2, Y=30, W=8, H=23}, Confidence 0.0047
-   Bounding box BoundingBox{X=623, Y=182, W=24, H=193}, Confidence 0.0030
- Crop Suggestions:
-   Aspect ratio 0.9: Crop suggestion BoundingBox{X=179, Y=0, W=383, H=426}
-   Aspect ratio 1.33: Crop suggestion BoundingBox{X=40, Y=0, W=571, H=428}
- Text:
-   Line: 'Sample text', Bounding polygon {541.0,376.0,632.0,376.0,632.0,389.0,541.0,389.0}
-     Word: 'Sample', Bounding polygon {541.0,376.0,632.0,376.0,632.0,389.0,541.0,389.0}, Confidence 0.9920
-     Word: 'text', Bounding polygon {540.0,393.0,613.0,395.0,613.0,408.0,540.0,406.0}, Confidence 0.9890
-   Line: 'Hand writing', Bounding polygon {540.0,393.0,613.0,395.0,613.0,408.0,540.0,406.0}
-     Word: 'Hand', Bounding polygon {542.0,411.0,592.0,411.0,592.0,424.0,542.0,423.0}, Confidence 0.9910
-     Word: 'writing', Bounding polygon {}, Confidence 0.9950
-   Line: '123 456', Bounding polygon {542.0,411.0,592.0,411.0,592.0,424.0,542.0,423.0}
-     Word: '123', Bounding polygon {}, Confidence 0.9980
-     Word: '456', Bounding polygon {}, Confidence 0.9980
- Result details:
-   Image ID = sample.jpg
-   Result ID = aff1f4f5-ac42-473d-ab88-d2c63dad93b5
-   Connection URL = https://di-computer-vision.cognitiveservices.azure.com/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=read%2CsmartCrops%2Ctags%2CdenseCaptions%2Cobjects%2Cpeople%2Ccaption&gender-neutral-caption=true&language=en&model-version=latest&smartcrops-aspect-ratios=0.9%2C1.33
-confidence":0.8922905325889587},{"name":"laptop","confidence":0.8696353435516357},{"name":"sitting","confidence":0.8194497227668762},{"name":"wall","confidence":0.760560154914856},{"name":"woman","confidence":0.7446081042289734},{"name":"table","confidence":0.6902524828910828},{"name":"plant","confidence":0.6416579484939575},{"name":"using","confidence":0.530124843120575}]},"smartCropsResult":{"values":[{"aspectRatio":0.9,"boundingBox":{"x":179,"y":0,"w":383,"h":426}},{"aspectRatio":1.33,"boundingBox":{"x":40,"y":0,"w":571,"h":428}}]},"peopleResult":{"values":[{"boundingBox":{"x":296,"y":181,"w":196,"h":250},"confidence":0.9578750729560852},{"boundingBox":{"x":2,"y":30,"w":8,"h":23},"confidence":0.004669021349400282},{"boundingBox":{"x":623,"y":182,"w":24,"h":193},"confidence":0.0030183952767401934}]}}
 
 ========================
  Image ID = document1Pager.png

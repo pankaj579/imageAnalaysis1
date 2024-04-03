@@ -25,7 +25,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>azure.ai.vision.imageanalysis.samples.Main</mainClass>
+              <mainClass>ms.audibles.imageanalysis.Main</mainClass>
             </manifest>
           </archive>
         </configuration>

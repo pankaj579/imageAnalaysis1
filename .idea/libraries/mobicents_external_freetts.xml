@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="mobicents.external.freetts" type="repository">
+    <properties maven-id="org.mobicents.external.freetts:freetts:1.2.2" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/freetts-1.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

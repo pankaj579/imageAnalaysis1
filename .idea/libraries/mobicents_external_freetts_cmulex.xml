@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="mobicents.external.freetts.cmulex" type="repository">
+    <properties maven-id="org.mobicents.external.freetts:cmulex:1.2.2" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cmulex-1.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
