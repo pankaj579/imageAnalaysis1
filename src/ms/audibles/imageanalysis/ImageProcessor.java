@@ -23,15 +23,10 @@ public class ImageProcessor {
         String audibleResult = "";
         try (
                 VisionServiceOptions serviceOptions = new VisionServiceOptions(new URL(endpoint), key);
-
                 VisionSource imageSource = VisionSource.fromFile(imageFileName);
-
                 ImageAnalysisOptions analysisOptions = new ImageAnalysisOptions()) {
 
-            // Mandatory. You must set one or more features to analyze. Here we use the full set of features.
-            // Note that 'Caption' and 'DenseCaptions' are only supported in Azure GPU regions (East US, France Central, Korea Central,
-            // North Europe, Southeast Asia, West Europe, West US). Remove 'Caption' and 'DenseCaptions' from the list below if your
-            // Computer Vision key is not from one of those regions.
+
             analysisOptions.setFeatures(EnumSet.of(
                     ImageAnalysisFeature.CAPTION,
                     ImageAnalysisFeature.DENSE_CAPTIONS,
@@ -40,15 +35,9 @@ public class ImageProcessor {
                     ImageAnalysisFeature.TEXT,
                     ImageAnalysisFeature.TAGS));
 
-            // Optional, and only relevant when you select ImageAnalysisFeature.CropSuggestions.
-            // Define one or more aspect ratios for the desired cropping. Each aspect ratio needs to be in the range [0.75, 1.8].
-            // If you do not set this, the service will return one crop suggestion with the aspect ratio it sees fit.
-            //analysisOptions.setCroppingAspectRatios(Arrays.asList(0.9, 1.33));
-
             try (
                     ImageAnalyzer analyzer = new ImageAnalyzer(serviceOptions, imageSource, analysisOptions)) {
                 System.out.println(" Please wait for image analysis results...\n");
-
 
                 try(
                         ImageAnalysisResult result = analyzer.analyze()) {
@@ -66,7 +55,7 @@ public class ImageProcessor {
                         System.out.println("   ************************************************ " );
                     } else {
                         ImageAnalysisErrorDetails errorDetails = ImageAnalysisErrorDetails.fromResult(result);
-                        System.out.println(" Analysis failed.");
+                        System.out.println(" Analysis failed");
                         System.out.println("   Error reason: " + errorDetails.getReason());
                         System.out.println("   Error code: " + errorDetails.getErrorCode());
                         System.out.println("   Error message: " + errorDetails.getMessage());

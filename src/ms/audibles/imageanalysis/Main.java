@@ -18,8 +18,8 @@ public class Main {
         try {
             System.out.println("\n MS-Audibles: lets hear whats written");
 
-            if (containsHelpOption(args) || !Secrets.loadSucceeded(args)) {
-                printUsage();
+            if (!Secrets.loadSucceeded(args)) {
+                System.out.println("Something went wrong with keys");
                 return;
             }
 
@@ -108,24 +108,4 @@ public class Main {
         return null;
     }
 
-    private static void printUsage() {
-        System.out.println();
-        System.out.println("To run the samples:");
-        System.out.println();
-        System.out.println("   java -jar ./target/image-analysis-samples-snapshot-jar-with-dependencies.jar [--key|-k <your-key>] [--endpoint|-e <your-endpoint>]");
-        System.out.println();
-        System.out.println("Where:");
-        System.out.println("   <your-key> - A computer vision key you get from your Azure portal.");
-        System.out.println("     It should be a 32-character HEX number.");
-        System.out.println("   <your-endpoint> - A computer vision endpoint you get from your Azure portal.");
-        System.out.println("     It should have the form: https://<your-computer-vision-resource-name>.cognitiveservices.azure.com");
-        System.out.println();
-        System.out.println("As an alternative to specifying the command line arguments, you can define");
-        System.out.println(String.format("these environment variables: %s and/or %s.", Secrets.ENVIRONMENT_VARIABLE_KEY, Secrets.ENVIRONMENT_VARIABLE_ENDPOINT));
-        System.out.println();
-        System.out.println("To get this usage help, run:");
-        System.out.println();
-        System.out.println("   java -jar ./target/image-analysis-samples-snapshot-jar-with-dependencies.jar --help|-h");
-        System.out.println();
-    }
 }
